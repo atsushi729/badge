@@ -13,6 +13,7 @@ import {
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import * as ScreenOrientation from "expo-screen-orientation";
 
 export default function App() {
   const [name, setName] = useState("Atsu");
@@ -28,7 +29,17 @@ export default function App() {
   const [paletteIndex, setPaletteIndex] = useState(0);
 
   useEffect(() => {
-    // Configure screen orientation or other initial setup here if needed
+    const lockLandscape = async () => {
+      try {
+        await ScreenOrientation.lockAsync(
+          ScreenOrientation.OrientationLock.LANDSCAPE_LEFT
+        );
+      } catch (err) {
+        console.warn("Failed to lock screen orientation:", err);
+      }
+    };
+
+    lockLandscape();
   }, []);
 
   const reset = () => {
