@@ -28,7 +28,7 @@ export default function App() {
   const [paletteIndex, setPaletteIndex] = useState(0);
 
   useEffect(() => {
-    // 画面向きや他の初期設定があればここで行う
+    // Configure screen orientation or other initial setup here if needed
   }, []);
 
   const reset = () => {
@@ -112,7 +112,7 @@ export default function App() {
                 </View>
               </View>
 
-              {/* コントロール領域 */}
+              {/* Control panel */}
               <View style={styles.controlsContainer}>
                 <Text style={styles.controlLabel}>Name</Text>
                 <TextInput
